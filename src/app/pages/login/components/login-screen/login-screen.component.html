@@ -1,0 +1,18 @@
+<p>login-screen works!</p>
+
+<form >
+    <!-- [formGroup]="metupalDetailsForm" -->
+    <div class="row">
+        <mat-form-field class="col-md-3" appearance="outline">
+            <mat-label>אימייל</mat-label>
+            <input matInput [formControlName]="'email'" maxlength="9">
+            <!-- <div class="errorMsg" *ngIf="metupalDetailsForm.controls.ms_teudat_zehut.errors?.required">
+                שדה חובה
+            </div> -->
+        </mat-form-field>
+        <!-- <mat-form-field>
+            <mat-label>סיסמא</mat-label>
+            <input matInput [formControlName]="'password'"  maxlength="9">
+        </mat-form-field> -->
+    </div>
+</form>
