@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
-import {ValidationService} from 'services/validation.service.ts'
+import {ValidatorsService} from 'src/app/services/validators.service';
 
 @Component({
   selector: 'app-login-screen',
@@ -9,23 +9,21 @@ import {ValidationService} from 'services/validation.service.ts'
 })
 export class LoginScreenComponent implements OnInit {
 
-
   public loginForm: FormGroup;
 
-  constructor(public validationService:ValidationService) { 
-    this.loginForm= this.formBuilder.group({
-      email:new FormControl('',{validators:[validationService.emailValid()]}),
-     // password:new FormControl('',{validators:[this.passwordValid()]}),
-    })
+  constructor(
+    public validatorsService:ValidatorsService,
+    public formBuilder:FormBuilder) { 
+     this.loginForm= this.formBuilder.group({
+       email:new FormControl('',{validators:[validatorsService.emailValid()]}),
+       password:new FormControl('',{validators:[validatorsService.passwordValid()]}),
+     })
   }
 
   ngOnInit(): void {
   }
-
  
-  passwordValid(){
-
+  login(){
+    console.log("i'm in login");
   }
-
-
 }
