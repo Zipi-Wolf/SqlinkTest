@@ -5,9 +5,9 @@
         <mat-form-field class="col-md-3" appearance="outline">
             <mat-label>e-mail</mat-label>
             <input matInput [formControlName]="'email'">
-            <!-- <div class="errorMsg" *ngIf="metupalDetailsForm.controls.ms_teudat_zehut.errors?.required">
+            <div class="errorMsg" *ngIf="loginForm.controls.email.errors?.required">
                 שדה חובה
-            </div> -->
+            </div>
         </mat-form-field>
     </div>
     <div class="row">

@@ -1,7 +1,8 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { LoginScreenComponent } from './components/login-screen/login-screen.component'; 
+import {MatTableModule} from '@angular/material/table';
+import {InfoScreenComponent} from '../info/components/info-screen/info-screen.component'
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatFormFieldModule  } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
@@ -9,10 +10,11 @@ import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
     declarations: [
-        LoginScreenComponent
+        InfoScreenComponent
     ],
     imports: [
         RouterModule,
+        MatTableModule,
         FormsModule,
         ReactiveFormsModule,
         MatFormFieldModule,
@@ -22,4 +24,4 @@ import { MatInputModule } from '@angular/material/input';
     providers: [],
 })
 
-export class LoginModule { }
+export class InfoModule { }

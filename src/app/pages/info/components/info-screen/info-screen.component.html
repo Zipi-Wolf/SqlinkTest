@@ -1,1 +1,52 @@
 <p>info-screen works!</p>
+
+<mat-card>
+    <div class="row">
+        {{personalDetails.name}}
+    </div>
+</mat-card>
+
+
+ <mat-card>
+    <mat-card-content> 
+        <div class="row">
+             
+ <table mat-table [dataSource]="projects" class="mat-elevation-z8" style="width: 70%; left: 15%; position: relative;">
+
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef> id</th>
+                    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="score">
+                    <th mat-header-cell *matHeaderCellDef> score </th>
+                    <td mat-cell *matCellDef="let element"> {{element.score}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="durationInDays">
+                    <th mat-header-cell *matHeaderCellDef> duration in days </th>
+                    <td mat-cell *matCellDef="let element"> {{element.durationInDays}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="bugsCount">
+                    <th mat-header-cell *matHeaderCellDef> bugs count</th>
+                    <td mat-cell *matCellDef="let element"> {{element.bugsCount}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="madeDadeline">
+                    <th mat-header-cell *matHeaderCellDef> made dadeline</th>
+                    <td mat-cell *matCellDef="let element"> {{element.madeDadeline}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+            </table> 
+        </div>
+    </mat-card-content>
+</mat-card> 
+
+

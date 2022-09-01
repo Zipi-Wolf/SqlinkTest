@@ -2,40 +2,53 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { MatFormFieldModule  } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+
+//import { MatTableModule } from '@angular/material/table';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppComponent } from './app.component';
-import { LoginScreenComponent } from './pages/login/components/login-screen/login-screen.component'
 import {LoginModule} from './pages/login/login.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { InfoScreenComponent } from './info-screen/info-screen.component'
 import { AppRoutingModule } from './app-routing.module';
+
+import { NgxsModule } from '@ngxs/store';
+import { ProjectState } from '../app/state/project.state';
+import { AuthState } from '../app/state/login.state';
+import { AuthGuard } from './guards/auth.guard';
+import { Store } from '@ngxs/store';
+
+import { AuthInterceptor } from 'src/app/interceptors/auth.interceptor'
+import { InfoModule } from './pages/info/info.module';
+//import { NgxsStoragePluginModule, StorageOption } from '@ngxs/storage-plugin'; 
+//import { SpinnerInterceptor } from 'src/app/interceptors/spinner.interceptor'
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginScreenComponent,
   ],
   imports: [
     BrowserModule,
 
+    NgxsModule.forRoot([ProjectState,AuthState]),
+
     AppRoutingModule,
     HttpClientModule,
     RouterModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
+    //MatTableModule,
+    MatProgressSpinnerModule,
 
     LoginModule,
+    InfoModule,
 
     BrowserAnimationsModule
 
+    //NgxsStoragePluginModule.forRoot({ key: 'auth', storage: StorageOption.SessionStorage }), 
   ],
-  providers: [],
+  providers: [AuthGuard , Store
+  ,   { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  //{ provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
- //bootstrap: [LoginScreenComponent]
 })
 export class AppModule { }
