@@ -1,23 +1,32 @@
-<p>login-screen works!</p>
 
-<form [formGroup]="loginForm">
-    <div class="row">
-        <mat-form-field class="col-md-3" appearance="outline">
-            <mat-label>e-mail</mat-label>
-            <input matInput [formControlName]="'email'">
-            <div class="errorMsg" *ngIf="loginForm.controls.email.errors?.required">
-                שדה חובה
+<mat-card>
+    <mat-card-content>
+        <p>Login</p>
+        <form [formGroup]="loginForm">
+            <div class="row">
+                <mat-form-field class="col-md-3" appearance="outline">
+                    <mat-label>e-mail</mat-label>
+                    <input matInput [formControlName]="'email'">
+                </mat-form-field>
+                <div class="errorMsg" *ngIf="loginForm.controls['email'].dirty && loginForm.controls['email'].errors && loginForm.controls['email'].errors['pattern']">
+                    invalid value
+                </div>
             </div>
-        </mat-form-field>
-    </div>
-    <div class="row">
-        <mat-form-field class="col-md-3" appearance="outline">
-            <mat-label>password</mat-label>
-            <input matInput [formControlName]="'password'"  minlength="8">
-        </mat-form-field>
-    </div>
-    <div class="row">
-        <button type="submit" mat-raised-button color="primary" 
-        [disabled]="loginForm.invalid" (click)="login()">Login</button>
-    </div>
-</form>
+            <div class="row">
+                <mat-form-field class="col-md-3" appearance="outline">
+                    <mat-label>password</mat-label>
+                    <input matInput type="password" [formControlName]="'password'"  minlength="8">
+                </mat-form-field>
+                <div class="errorMsg" *ngIf="loginForm.controls['password'].dirty && loginForm.controls['password'].errors && loginForm.controls['password'].errors['pattern']">
+                    invalid value
+                    Password should be at least 8 characters long and should contain one number,one character and one special character.
+                </div>
+            </div>
+            <div class="row">
+                <button type="submit" mat-raised-button color="primary" 
+                [disabled]="loginForm.invalid" (click)="login()">Login</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
+

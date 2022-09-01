@@ -1,7 +1,9 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common'; 
 import {MatTableModule} from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 import {InfoScreenComponent} from '../info/components/info-screen/info-screen.component'
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatFormFieldModule  } from '@angular/material/form-field';
@@ -14,7 +16,9 @@ import { MatInputModule } from '@angular/material/input';
     ],
     imports: [
         RouterModule,
+        CommonModule,
         MatTableModule,
+        MatSortModule,
         FormsModule,
         ReactiveFormsModule,
         MatFormFieldModule,

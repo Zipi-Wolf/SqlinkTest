@@ -23,7 +23,7 @@ export class LoginScreenComponent implements OnInit {
               public router:Router,
               public store:Store) { 
      this.loginForm= this.formBuilder.group({
-       email:new FormControl('',{validators:[Validators.required, validatorsService.emailValid()]}),
+       email:new FormControl('',[validatorsService.emailValid()]),
        password:new FormControl('',{validators:[validatorsService.passwordValid()]}),
      })
   }

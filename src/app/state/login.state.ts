@@ -1,16 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Login, Logout } from './../actions/login.actions';
-//import { LoginService } from './../../../../core/services/login.service';
 import { HttpService } from '../services/http.service';
 import { State, Selector, StateContext, Action } from '@ngxs/store';
 import { tap, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 //import {Login} from '../models/login.model';
 
-// export class AuthStateModel {
-//  token: string="";
-//  username: string="";
-// }
 export class AuthStateModel {
 token:string="";
 personalDetails:PersonalDetails =  {} as any;
@@ -37,7 +32,6 @@ avatar:string;
 export class AuthState {
 
   @Selector()
- // tslint:disable-next-line: typedef
  static token(state: AuthStateModel) { return state.token; }
 
  @Selector()

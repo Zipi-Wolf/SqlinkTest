@@ -36,7 +36,7 @@ export class HttpService {
                                this.httpOptions);
   }
 
-  getProjectsByUser():Observable<any>
+  getProjectsByUser(userId:string):Observable<any>
   {
     return this.http.get(this.getProjectsUrl);
   }

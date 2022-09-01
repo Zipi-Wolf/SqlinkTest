@@ -1,0 +1,15 @@
+.errorMsg{
+margin-top: -22px;
+color: red;
+}
+
+mat-card{
+    width: 30%;
+    position: absolute;
+    left: 35%;
+    top: 15%;
+}
+
+mat-card>mat-card-content>p{
+    font-weight: bold;
+}

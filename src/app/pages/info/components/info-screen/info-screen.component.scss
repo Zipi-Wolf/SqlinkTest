@@ -1,0 +1,21 @@
+mat-card{
+    width: 80%;
+    left: 10%;
+    margin: 5%;
+}
+
+mat-card>mat-card-content>p{
+    font-weight: bold;
+}
+
+mat-card>mat-card-content>div>table{
+    width: 70%; left: 15%; position: relative;
+}
+
+.make-green{
+    background-color: green
+}
+
+.make-red{
+    background-color: red
+}

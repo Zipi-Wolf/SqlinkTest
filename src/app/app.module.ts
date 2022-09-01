@@ -12,14 +12,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 
 import { NgxsModule } from '@ngxs/store';
-import { ProjectState } from '../app/state/project.state';
+import { ProjectsState } from '../app/state/project.state';
 import { AuthState } from '../app/state/login.state';
 import { AuthGuard } from './guards/auth.guard';
 import { Store } from '@ngxs/store';
 
 import { AuthInterceptor } from 'src/app/interceptors/auth.interceptor'
 import { InfoModule } from './pages/info/info.module';
-//import { NgxsStoragePluginModule, StorageOption } from '@ngxs/storage-plugin'; 
+import { NgxsStoragePluginModule, StorageOption } from '@ngxs/storage-plugin'; 
 //import { SpinnerInterceptor } from 'src/app/interceptors/spinner.interceptor'
 
 
@@ -30,7 +30,7 @@ import { InfoModule } from './pages/info/info.module';
   imports: [
     BrowserModule,
 
-    NgxsModule.forRoot([ProjectState,AuthState]),
+    NgxsModule.forRoot([ProjectsState,AuthState]),
 
     AppRoutingModule,
     HttpClientModule,
@@ -41,9 +41,9 @@ import { InfoModule } from './pages/info/info.module';
     LoginModule,
     InfoModule,
 
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
 
-    //NgxsStoragePluginModule.forRoot({ key: 'auth', storage: StorageOption.SessionStorage }), 
+    NgxsStoragePluginModule.forRoot({ key: 'auth', storage: StorageOption.SessionStorage }), 
   ],
   providers: [AuthGuard , Store
   ,   { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
